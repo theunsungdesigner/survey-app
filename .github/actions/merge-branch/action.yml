@@ -1,0 +1,48 @@
+name: 'Merge Branch Pipeline'
+description: 'Runs checks, builds Docker images, and creates releases for main branch merges'
+author: 'Survey App Team'
+
+inputs:
+  workspace:
+    description: 'Path to the monorepo root'
+    required: false
+    default: ${{ github.workspace }}
+  node-version:
+    description: 'Node.js version to use'
+    required: false
+    default: '18'
+  go-version:
+    description: 'Go version to use'
+    required: false
+    default: '1.21'
+  github-token:
+    description: 'GitHub token for authentication'
+    required: true
+  registry:
+    description: 'Container registry'
+    required: false
+    default: 'ghcr.io'
+  registry-username:
+    description: 'Registry username'
+    required: false
+    default: ${{ github.actor }}
+  create-release:
+    description: 'Whether to create a GitHub release'
+    required: false
+    default: 'true'
+
+outputs:
+  frontend-image:
+    description: 'Full frontend image name with tag'
+  backend-image:
+    description: 'Full backend image name with tag'
+  release-tag:
+    description: 'Created release tag'
+  release-url:
+    description: 'URL to created release'
+  summary:
+    description: 'Summary of all operations'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

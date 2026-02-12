@@ -1,0 +1,39 @@
+name: 'Feature Branch Checks'
+description: 'Runs linting, type checking, tests, and builds for feature branches'
+author: 'Survey App Team'
+
+inputs:
+  workspace:
+    description: 'Path to the monorepo root'
+    required: false
+    default: ${{ github.workspace }}
+  node-version:
+    description: 'Node.js version to use'
+    required: false
+    default: '18'
+  go-version:
+    description: 'Go version to use'
+    required: false
+    default: '1.21'
+
+outputs:
+  frontend-lint-status:
+    description: 'Frontend lint status'
+  frontend-typecheck-status:
+    description: 'Frontend type check status'
+  frontend-test-status:
+    description: 'Frontend test status'
+  frontend-build-status:
+    description: 'Frontend build status'
+  backend-lint-status:
+    description: 'Backend lint status'
+  backend-test-status:
+    description: 'Backend test status'
+  backend-build-status:
+    description: 'Backend build status'
+  summary:
+    description: 'Summary of all checks'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

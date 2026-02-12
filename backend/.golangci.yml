@@ -1,0 +1,82 @@
+run:
+  timeout: 5m
+  tests: true
+  modules-download-mode: readonly
+
+linters:
+  enable:
+    - errcheck      # Check for unchecked errors
+    - gosimple      # Simplify code
+    - govet         # Vet examines Go source code
+    - ineffassign   # Detect ineffectual assignments
+    - staticcheck   # Staticcheck is go vet on steroids
+    - unused        # Check for unused constants, variables, functions
+    - gofmt         # Check whether code was gofmt-ed
+    - goimports     # Check import statements are formatted
+    - misspell      # Correct commonly misspelled English words
+    - gocritic      # Comprehensive Go source code linter
+    - revive        # Fast, configurable, extensible, flexible, and beautiful linter
+    - gosec         # Security-focused linter
+    - bodyclose     # Check HTTP response bodies are closed
+    - nilerr        # Finds nil errors
+    - unparam       # Find unused function parameters
+  disable:
+    - typecheck     # Sometimes conflicts with IDE
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+
+  govet:
+    check-shadowing: true
+
+  gofmt:
+    simplify: true
+
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - performance
+      - style
+    disabled-checks:
+      - whyNoLint
+      - unnamedResult
+
+  revive:
+    rules:
+      - name: exported
+        severity: warning
+      - name: error-return
+        severity: warning
+      - name: error-naming
+        severity: warning
+      - name: if-return
+        severity: warning
+
+  gosec:
+    excludes:
+      - G104  # Audit errors not checked (we use errcheck)
+      - G304  # File path provided as taint input
+
+issues:
+  exclude-rules:
+    # Exclude some linters from running on tests files
+    - path: _test\.go
+      linters:
+        - gosec
+        - errcheck
+        - gocritic
+
+    # Exclude shadow checking on the variable named err
+    - text: "shadow: declaration of \"err\" shadows declaration"
+      linters:
+        - govet
+
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true

@@ -1,0 +1,6 @@
+node_modules/
+*.log
+.DS_Store
+licenses.txt
+
+# We commit dist/ for GitHub Actions, so don't ignore it
