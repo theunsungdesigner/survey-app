@@ -2,6 +2,14 @@
 
 A production-ready full-stack survey data visualization application with comprehensive testing, CI/CD pipeline, and modern development practices.
 
+<img width="1510" height="761" alt="image" src="https://github.com/user-attachments/assets/67db8810-c0d5-45a7-ab48-1e40debeb074" />
+
+
+<img width="1510" height="493" alt="image" src="https://github.com/user-attachments/assets/cf7bd403-fa1f-4506-b376-0f6fe7f9620e" />
+
+
+
+
 ## Features
 
 - **Interactive Visualizations**: Pie, bar, line, and area charts powered by Recharts
