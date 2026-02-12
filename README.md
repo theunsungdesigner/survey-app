@@ -2,12 +2,7 @@
 
 A production-ready full-stack survey data visualization application with comprehensive testing, CI/CD pipeline, and modern development practices.
 
-[![Tests](https://img.shields.io/badge/tests-117%20passing-success)](https://github.com/theunsungdesigner/survey-app)
-[![Frontend](https://img.shields.io/badge/frontend-React%2018-blue)](https://react.dev/)
-[![Backend](https://img.shields.io/badge/backend-Go%201.21-00ADD8)](https://go.dev/)
-[![Database](https://img.shields.io/badge/database-PostgreSQL%2015-336791)](https://www.postgresql.org/)
-
-## 🚀 Features
+## Features
 
 - **Interactive Visualizations**: Pie, bar, line, and area charts powered by Recharts
 - **Hierarchical Organization**: Categories → Subcategories → Questions structure
@@ -16,21 +11,20 @@ A production-ready full-stack survey data visualization application with compreh
 - **Type-Safe**: Full TypeScript frontend + strongly-typed Go backend
 - **Production Ready**: Docker containerization with multi-stage builds
 - **CI/CD Pipeline**: Automated testing, linting, building, and deployment
-- **Comprehensive Testing**: 117 tests (93 frontend + 24 backend)
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Quick Start](#-quick-start)
-- [Architecture](#-architecture)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Development](#-development)
-- [Testing](#-testing)
-- [CI/CD](#-cicd)
-- [API Documentation](#-api-documentation)
-- [Deployment](#-deployment)
+- [Quick Start](#quick-start)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Development](#development)
+- [Testing](#testing)
+- [CI/CD](#cicd)
+- [API Documentation](#api-documentation)
+- [Deployment](#deployment)
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -58,7 +52,7 @@ The first startup will take a few minutes to build images and install dependenci
 - Backend API: http://localhost:8080
 - PostgreSQL: localhost:5432
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌──────────────────┐
@@ -80,7 +74,7 @@ The first startup will take a few minutes to build images and install dependenci
 - **Container-First**: Docker for development and production
 - **API Versioning**: `/api/v2` endpoints for future compatibility
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Framework**: React 18.2 with TypeScript 4.9
@@ -111,7 +105,7 @@ The first startup will take a few minutes to build images and install dependenci
 - **Registry**: GitHub Container Registry (ghcr.io)
 - **Web Server**: Nginx (production frontend)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 survey-app/
@@ -201,7 +195,7 @@ survey-app/
 └── README.md                           # This file
 ```
 
-## 💻 Development
+## Development
 
 ### Local Development (Without Docker)
 
@@ -283,7 +277,7 @@ psql -U postgres -h localhost -d survey_db
 SELECT * FROM surveys;
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Frontend Tests (Vitest + React Testing Library)
 
@@ -304,18 +298,17 @@ npm run test:ui
 ```
 
 **Test Coverage:**
-- ✅ **93 passing tests**
 - 5 test suites
 - Components: QuestionChart, ExportMenu
 - Pages: SurveyList, SurveyDashboard
 - Services: surveyAPI
 
 **Test Files:**
-- `src/services/surveyAPI.test.ts` - 16 tests
-- `src/components/QuestionChart.test.tsx` - 29 tests
-- `src/components/ExportMenu.test.tsx` - 16 tests
-- `src/pages/SurveyList.test.tsx` - 20 tests
-- `src/pages/SurveyDashboard.test.tsx` - 23 tests
+- `src/services/surveyAPI.test.ts`
+- `src/components/QuestionChart.test.tsx`
+- `src/components/ExportMenu.test.tsx`
+- `src/pages/SurveyList.test.tsx`
+- `src/pages/SurveyDashboard.test.tsx`
 
 ### Backend Tests (Ginkgo + Gomega)
 
@@ -336,16 +329,15 @@ ginkgo -v
 ```
 
 **Test Coverage:**
-- ✅ **24 passing tests**
 - BDD-style specs with Ginkgo
 - Gomega matchers for assertions
 
 **Test Files:**
-- `services/export_test.go` - 24 tests
-  - ExportAsCSV - 9 tests
-  - ExportAsJSON - 4 tests
-  - ExportAsReport - 7 tests
-  - ExportSummary - 4 tests
+- `services/export_test.go`
+  - ExportAsCSV
+  - ExportAsJSON
+  - ExportAsReport
+  - ExportSummary
 
 ### Linting
 
@@ -377,7 +369,7 @@ golangci-lint run --fix     # Auto-fix issues
 - revive, gosec
 - bodyclose, nilerr, unparam
 
-## 🔄 CI/CD
+## CI/CD
 
 ### GitHub Actions Workflows
 
@@ -439,7 +431,7 @@ Both workflows use custom TypeScript-based GitHub Actions for reusable logic:
 
 Now pushing to feature branches or main will trigger automated workflows!
 
-## 📚 API Documentation
+## API Documentation
 
 ### Base URL
 ```
@@ -542,7 +534,7 @@ The API allows requests from:
 - `http://localhost:3000` (development)
 - `http://localhost:5173` (Vite dev server)
 
-## 🚢 Deployment
+## Deployment
 
 ### Production Build
 
@@ -597,7 +589,7 @@ Both services include health checks:
 - **Backend**: `GET /health`
 - **Frontend**: Nginx health check via `wget`
 
-## 🛑 Stopping Services
+## Stopping Services
 
 ```bash
 # Stop services (preserve data)
@@ -610,7 +602,7 @@ docker-compose down -v
 docker-compose down -v --remove-orphans
 ```
 
-## 📊 Database Schema
+## Database Schema
 
 ```sql
 -- Surveys
@@ -646,7 +638,7 @@ CREATE TABLE questions (
 );
 ```
 
-## 🤝 Contributing
+## Contributing
 
 ### Development Workflow
 
@@ -686,26 +678,12 @@ CREATE TABLE questions (
 
 The CI workflow will automatically run tests and checks on your PR!
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- Built with ❤️ using modern web technologies
-- Co-authored by Claude Sonnet 4.5
+- Built using modern web technologies
 - Comprehensive testing ensures production readiness
 - CI/CD pipeline automates quality assurance
-
----
-
-**Total Stats:**
-- 📦 63 files
-- 🧪 117 tests (all passing)
-- 🎨 5 React components
-- 🔌 7 API endpoints
-- 🐳 3 Docker services
-- ⚡ 2 GitHub Actions workflows
-- 📊 4 database tables
-
-Made with modern development practices 🚀
